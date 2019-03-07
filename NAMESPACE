@@ -2,6 +2,8 @@
 
 export(select_input)
 importFrom(htmltools,htmlDependency)
+importFrom(htmltools,tagList)
 importFrom(htmltools,tags)
+importFrom(htmltools,validateCssUnit)
 importFrom(reactR,createReactInput)
 importFrom(shiny,restoreInput)

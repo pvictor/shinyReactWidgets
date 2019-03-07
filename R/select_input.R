@@ -4,16 +4,18 @@
 #' @description A flexible and beautiful Select Input control.
 #'
 #' @param inputId The \code{input} slot that will be used to access the value.
+#' @param label Display label for the control, or NULL for no label.
 #' @param choices List of values to select from.
 #' @param selected The initially selected value.
 #' @param placeholder The text displayed when no option is selected.
 #' @param multi Allow the user to select multiple values.
 #' @param searchable Allow the user to search for matching options
 #' @param clearable Add a button to remove selected choice(s).
+#' @param width The width of the input, e.g. \code{'400px'}, or \code{'100\%'}.
 #'
 #' @importFrom shiny restoreInput
 #' @importFrom reactR createReactInput
-#' @importFrom htmltools htmlDependency tags
+#' @importFrom htmltools htmlDependency tags tagList validateCssUnit
 #'
 #' @export
 #'
@@ -45,7 +47,10 @@
 #'
 #'   shinyApp(ui, server)
 #' }
-select_input <- function(inputId, choices, selected = NULL, placeholder = "Select...", multi = FALSE, searchable = FALSE, clearable = TRUE) {
+select_input <- function(inputId, label, choices, selected = NULL,
+                         placeholder = "Select...", multi = FALSE,
+                         searchable = FALSE, clearable = TRUE,
+                         width = NULL) {
   selected <- restoreInput(id = inputId, default = selected)
   if (is.null(selected))
     selected <- character(0)
@@ -75,7 +80,18 @@ select_input <- function(inputId, choices, selected = NULL, placeholder = "Selec
       isSearchable = isTRUE(searchable),
       isMulti = isTRUE(multi)
     ),
-    container = tags$div
+    # container = tags$div
+    container = function(...) {
+      tagList(
+        if (!is.null(label)) tags$label(label, `for` = inputId),
+        tags$div(
+          class = "shiny-input-container",
+          style = if (!is.null(width))
+            paste0("width: ", validateCssUnit(width), ";"),
+          ...
+        )
+      )
+    }
   )
 }
 

@@ -1,6 +1,4 @@
 library(shiny)
-library(htmltools)
-library(reactR)
 library(shinyReactWidgets)
 
 ui <- fluidPage(
@@ -8,6 +6,7 @@ ui <- fluidPage(
 
   select_input(
     inputId = "select",
+    label = "Select a month:",
     choices = month.name,
     multi = FALSE
   ),

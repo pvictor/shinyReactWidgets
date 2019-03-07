@@ -4,12 +4,14 @@
 \alias{select_input}
 \title{React Select}
 \usage{
-select_input(inputId, choices, selected = NULL,
+select_input(inputId, label, choices, selected = NULL,
   placeholder = "Select...", multi = FALSE, searchable = FALSE,
-  clearable = TRUE)
+  clearable = TRUE, width = NULL)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}
+
+\item{label}{Display label for the control, or NULL for no label.}
 
 \item{choices}{List of values to select from.}
 
@@ -22,6 +24,8 @@ select_input(inputId, choices, selected = NULL,
 \item{searchable}{Allow the user to search for matching options}
 
 \item{clearable}{Add a button to remove selected choice(s).}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'}.}
 }
 \description{
 A flexible and beautiful Select Input control.

@@ -1,6 +1,6 @@
 # shinyReactWidgets
 
-> React Widgets for Shiny apps
+> [ReactR](https://github.com/react-R/reactR) Widgets for Shiny apps
 
 ## Installation
 
@@ -16,6 +16,8 @@ remotes::install_github("https://github.com/pvictor/shinyReactWidgets")
 ## react-select
 
 Widget for [react-select](https://github.com/JedWatson/react-select)
+
+![](imgs/react-select.png)
 
 ``` r
 library(shiny)
