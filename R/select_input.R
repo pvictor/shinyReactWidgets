@@ -16,6 +16,35 @@
 #' @importFrom htmltools htmlDependency tags
 #'
 #' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'
+#'   library(shiny)
+#'   library(shinyReactWidgets)
+#'
+#'   ui <- fluidPage(
+#'     tags$h1("react-select example"),
+#'
+#'     select_input(
+#'       inputId = "select",
+#'       choices = month.name,
+#'       multi = FALSE
+#'     ),
+#'
+#'     verbatimTextOutput("res")
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'
+#'     output$res <- renderPrint({
+#'       input$select
+#'     })
+#'
+#'   }
+#'
+#'   shinyApp(ui, server)
+#' }
 select_input <- function(inputId, choices, selected = NULL, placeholder = "Select...", multi = FALSE, searchable = FALSE, clearable = TRUE) {
   selected <- restoreInput(id = inputId, default = selected)
   if (is.null(selected))

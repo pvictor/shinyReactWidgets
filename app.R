@@ -4,7 +4,7 @@ library(reactR)
 library(shinyReactWidgets)
 
 ui <- fluidPage(
-  titlePanel("reactR Input Example"),
+  tags$h1("react-select example"),
 
   select_input(
     inputId = "select",

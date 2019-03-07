@@ -26,3 +26,32 @@ select_input(inputId, choices, selected = NULL,
 \description{
 A flexible and beautiful Select Input control.
 }
+\examples{
+if (interactive()) {
+
+  library(shiny)
+  library(shinyReactWidgets)
+
+  ui <- fluidPage(
+    tags$h1("react-select example"),
+
+    select_input(
+      inputId = "select",
+      choices = month.name,
+      multi = FALSE
+    ),
+
+    verbatimTextOutput("res")
+  )
+
+  server <- function(input, output, session) {
+
+    output$res <- renderPrint({
+      input$select
+    })
+
+  }
+
+  shinyApp(ui, server)
+}
+}
