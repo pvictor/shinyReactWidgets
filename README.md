@@ -10,7 +10,7 @@ You can install from GitHub:
 # you need branch 'input-binding' from ReactR
 remotes::install_github("react-R/reactR@input-binding")
 
-remotes::install_github("https://github.com/pvictor/shinyReactWidgets")
+remotes::install_github("pvictor/shinyReactWidgets")
 ```
 
 ## react-select
