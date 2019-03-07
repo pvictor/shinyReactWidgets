@@ -10771,7 +10771,7 @@ var SelectInput = function SelectInput(_ref) {
   var configuration = _ref.configuration,
       value = _ref.value,
       setValue = _ref.setValue;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  var select = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_2__["default"], {
     defaultValue: configuration.selected,
     options: configuration.choices,
     placeholder: configuration.placeholder,
@@ -10779,21 +10779,24 @@ var SelectInput = function SelectInput(_ref) {
     isSearchable: configuration.isSearchable,
     isMulti: configuration.isMulti,
     onChange: function onChange(value) {
-      if (configuration.isMulti) {
-        var res = [];
-
-        for (var key in value) {
-          if (value.hasOwnProperty(key)) {
-            res.push(value[key].label);
-          }
-        }
-
-        setValue(res);
-      } else {
-        setValue(value.value);
-      }
+      return setValue(configuration.isMulti ? value.map(function (v) {
+        return v.label;
+      }) : value.value);
     }
   });
+
+  if (configuration.label) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      for: configuration.inputId
+    }, configuration.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      class: "shiny-input-container",
+      style: configuration.width ? {
+        width: configuration.width
+      } : {}
+    }, select));
+  } else {
+    return select;
+  }
 };
 
 Object(reactR__WEBPACK_IMPORTED_MODULE_1__["reactInput"])('.select_input', 'shinyReactWidgets.select_input', SelectInput);
