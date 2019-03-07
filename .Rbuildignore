@@ -1,0 +1,8 @@
+^node_modules$
+^srcjs$
+^shinyReactWidgets\.Rproj$
+^\.Rproj\.user$
+^app\.R$
+^package\.json$
+^webpack\.config\.js$
+^yarn\.lock$

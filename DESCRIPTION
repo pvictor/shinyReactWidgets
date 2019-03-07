@@ -1,0 +1,16 @@
+Package: shinyReactWidgets
+Title: React Widgets for 'Shiny' Applications
+Version: 0.0.0.9000
+Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
+  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
+  person("Jed", "Watson", comment = "react-select library", role = "cph"))
+Description: React widgets components for 'Shiny' applications.
+License: GPL-3 | file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    shiny,
+    htmltools,
+    htmlwidgets,
+    reactR
+RoxygenNote: 6.1.1
