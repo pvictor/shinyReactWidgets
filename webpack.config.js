@@ -1,5 +1,5 @@
 var path = require('path');
-
+const Uglify = require("uglifyjs-webpack-plugin");
 module.exports = {
     mode: 'development',
     entry: path.join(__dirname, 'srcjs', 'select_input.jsx'),
@@ -19,6 +19,9 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new Uglify()
+    ],
     externals: {
         'react': 'window.React',
         'react-dom': 'window.ReactDOM',
