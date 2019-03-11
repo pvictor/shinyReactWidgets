@@ -72,7 +72,7 @@ select_input <- function(inputId, label, choices, selected = NULL,
       script = "select_input.js"
     ),
     default = selected,
-    configuration = list(
+    configuration = dropNulls(list(
       inputId = inputId,
       label = label,
       choices = choices,
@@ -81,7 +81,7 @@ select_input <- function(inputId, label, choices, selected = NULL,
       isClearable = isTRUE(clearable),
       isSearchable = isTRUE(searchable),
       isMulti = isTRUE(multi)
-    ),
+    )),
     container = tags$div
   )
 }
