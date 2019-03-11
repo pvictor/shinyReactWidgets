@@ -73,6 +73,8 @@ select_input <- function(inputId, label, choices, selected = NULL,
     ),
     default = selected,
     configuration = list(
+      inputId = inputId,
+      label = label,
       choices = choices,
       selected = selectedChoices(choices, selected),
       placeholder = placeholder,
@@ -80,18 +82,7 @@ select_input <- function(inputId, label, choices, selected = NULL,
       isSearchable = isTRUE(searchable),
       isMulti = isTRUE(multi)
     ),
-    # container = tags$div
-    container = function(...) {
-      tagList(
-        if (!is.null(label)) tags$label(label, `for` = inputId),
-        tags$div(
-          class = "shiny-input-container",
-          style = if (!is.null(width))
-            paste0("width: ", validateCssUnit(width), ";"),
-          ...
-        )
-      )
-    }
+    container = tags$div
   )
 }
 
