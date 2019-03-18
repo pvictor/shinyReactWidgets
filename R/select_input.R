@@ -14,7 +14,7 @@
 #' @param width The width of the input, e.g. \code{'400px'}, or \code{'100\%'}.
 #'
 #' @importFrom shiny restoreInput
-#' @importFrom reactR createReactInput
+#' @importFrom reactR createReactShinyInput
 #' @importFrom htmltools htmlDependency tags tagList validateCssUnit
 #'
 #' @export
@@ -61,7 +61,7 @@ select_input <- function(inputId, label, choices, selected = NULL,
       list(label = names(choices)[i], value = choices[[i]])
     }
   )
-  createReactInput(
+  createReactShinyInput(
     inputId = inputId,
     class = "select_input",
     dependencies = htmlDependency(

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { reactInput } from 'reactR';
+import React, { Component } from 'react';
+import { reactShinyInput } from 'reactR';
 import Select from 'react-select';
 
 const SelectInput = ({ configuration, value, setValue }) => {
@@ -32,4 +32,4 @@ const SelectInput = ({ configuration, value, setValue }) => {
   }
 };
 
-reactInput('.select_input', 'shinyReactWidgets.select_input', SelectInput);
+reactShinyInput('.select_input', 'shinyReactWidgets.select_input', SelectInput);
